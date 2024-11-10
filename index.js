@@ -1,18 +1,18 @@
 'use strict';
 
-const Pix = require("./src/pix");
-const Token = require('./src/token');
+const Pix = require("./src/basic/pix");
+const RequestRouter = require("./src/basic/requestRouter");
+const tokenAuth0 = require('./src/basic/token/oauth0');
+const tokenAuth2 = require('./src/basic/token/oauth2');
 
+const exportsObject = {
+  Pix,
+  tokenAuth0,
+  tokenAuth2,
+  RequestRouter,
+};
 
-module.exports = {
-  Pix: Pix,
-  Token: Token,
-}
-module.exports.default = {
-  Pix: Pix,
-  Token: Token,
-}
-module.exports.mde = {
-  Pix: Pix,
-  Token: Token,
-}
+// Exportando múltiplas referências, eliminando redundância
+module.exports = exportsObject;
+module.exports.default = exportsObject;
+module.exports.mde = exportsObject;
